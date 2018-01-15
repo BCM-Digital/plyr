@@ -2738,13 +2738,15 @@
                 if (plyr.media.paused || loading) {
                     return;
                 }
-
-                // Delay for hiding on touch
-                if (plyr.browser.isTouch) {
-                    delay = 3000;
-                }
             }
 
+            // TEMP FIX
+            // https://github.com/sampotts/plyr/issues/672
+            // Delay for hiding on touch
+            if (plyr.browser.isTouch) {
+                delay = 3000;
+            }
+            
             // If toggle is false or if we're playing (regardless of toggle),
             // then set the timer to hide the controls
             if (!show || !plyr.media.paused) {
